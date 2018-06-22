@@ -1,0 +1,35 @@
+{% if feed %}
+<h3>Now viewing feeds</h3>
+<ul class="activity-block last" aria-hidden="false">
+{% for item in feed %}
+			<li class="event event-wordcamp wp-clearfix">
+				<div class="event-info">
+					<div class="event-info-inner">
+					<span class="dashicons dashicons-rss"></span>
+						<a class="event-title" href="{{ item.short_URL }}">{{ item.title }}</a>
+						<span class="event-city">{{item.status}}</span>
+					</div>
+					<div class="event-date-time">
+						<span class="event-date">{{item.date|date("D M, Y")}}</span>
+					</div>
+				</div>
+			</li>
+{% endfor %}
+		
+	</ul>
+	
+{% else %}
+<h3>Select a Feed to view</h3>
+
+
+{% endif %}
+<style>
+ul.inline li {
+display: inline;
+}
+ul.inline li a{padding:0 4px;}
+</style>
+<ul class="inline">
+	<li><a href="?get_site=derry_one">Get Derry one feed</a></li> | 
+	<li><a href="?get_site=derry_two">Get Derry two feed</a></li>
+</ul>
